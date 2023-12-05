@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма</title>
+</head>
+<body>
+    <h1>Форма для студента</h1>
+    <form method="post">
+        <div>
+            {{ form.full_name.label }} {{ form.full_name(size=20) }}
+        </div>
+        <div>
+            {{ form.birth_date.label }} {{ form.birth_date(size=20) }}
+        </div>
+        <div>
+            {{ form.university.label }}{{ form.university(class="select-field") }}
+        </div>
+        <div>
+            {{ form.enrollment_year.label }} {{ form.enrollment_year(size=20) }}
+        </div>
+        <button type="submit">Сохранить</button>
+    </form>
+</body>
+</html>

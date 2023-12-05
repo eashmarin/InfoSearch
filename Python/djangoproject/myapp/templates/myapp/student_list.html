@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Студенты</title>
+</head>
+<body>
+    <h1>Студенты</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                <strong>{{ student.full_name }}</strong>
+                <form action="{% url 'student_detail' student.pk %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="link-button">Подробнее</button>
+                </form>
+                <form action="{% url 'student_update' student.pk %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Обновить</button>
+                </form>
+                <form action="{% url 'student_delete' student.pk %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Удалить</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'student_create' %}" method="get" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="link-button">Создать</button>
+    </form>
+
+    <form action="{% url 'home' %}" method="get" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="link-button">Главная страница</button>
+    </form>
+</body>
+</html>

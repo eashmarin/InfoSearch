@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Университеты</title>
+</head>
+<body>
+    <h1>Университеты</h1>
+    <ul>
+        {% for university in universities %}
+            <li>
+                <strong>{{ university.full_name }}</strong>
+                <form action="{% url 'university_detail' university.pk %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="link-button">Подробнее</button>
+                </form>
+                <form action="{% url 'university_update' university.pk %}" method="get" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Обновить</button>
+                </form>
+                <form action="{% url 'university_delete' university.pk %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Удалить</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="{% url 'university_create' %}" method="get" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="link-button">Создать</button>
+    </form>
+
+    <form action="{% url 'home' %}" method="get" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="link-button">Главная страница</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Главная страница</title>
+</head>
+<body>
+    <form action="{% url 'university_list' %}">
+        {% csrf_token %}
+        <button type="submit" class="link-button">Университеты</button>
+    </form>
+    <form action="{% url 'student_list' %}">
+        <button type="submit" class="link-button">Студенты</button>
+    </form>
+</body>
+</html>

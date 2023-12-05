@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<form action="z10-2.php" method="get">
+    <table>
+        <tr>
+            <td>Таблица</td>
+            <td>Отобразить, структуру</td>
+            <td>Отобразить, содержимое</td>
+        </tr>
+        <tr>
+            <td>Продавцы</td>
+            <td><input type="checkbox" name="structure[]" value="sal"></td>
+            <td><input type="checkbox" name="content[]" value="sal"></td>
+        </tr>
+        <tr>
+            <td>Покупатели</td>
+            <td><input type="checkbox" name="structure[]" value="cust"></td>
+            <td><input type="checkbox" name="content[]" value="cust"></td>
+        </tr>
+        <tr>
+            <td>Заказы</td>
+            <td><input type="checkbox" name="structure[]" value="ord"></td>
+            <td><input type="checkbox" name="content[]" value="ord"></td>
+        </tr>
+    </table>
+    <input type="submit" value="Вывести!">
+</form>
+
+</body>
+</html>

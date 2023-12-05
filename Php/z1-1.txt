@@ -1,0 +1,26 @@
+SELECT * FROM cust WHERE snum = 1001;
+SELECT city, sname, snum, comm FROM sal;
+SELECT rating,cname FROM cust WHERE city = 'San Jose';
+SELECT DISTINCT snum FROM ord;
+SELECT sname, city FROM sal WHERE city = 'London' AND comm > .11;
+SELECT * FROM cust WHERE rating <= 200 OR city = 'Rome';
+SELECT * FROM ord WHERE odate IN ('10-03-1990', '10/05/1990');SELECT * FROM ord WHERE odate = '10-03-1990' OR odate = '10/05/1990';
+SELECT * FROM cust WHERE cname BETWEEN 'A' AND 'G';
+SELECT * FROM sal WHERE sname LIKE '%e%';
+SELECT SUM(amt) FROM ord WHERE odate = '10-03-1990';
+SELECT SUM(amt) FROM ord WHERE snum = 1001;
+SELECT o1.* FROM ord o1 JOIN (SELECT snum, MAX(amt) AS max_amt FROM orв GROUP BY snum) o2 ON o1.snum = o2.snum AND o1.amt = o2.max_amt;
+SELECT * FROM cust WHERE cname LIKE '%s' ORDER BY cname LIMIT 1;
+SELECT city, AVG(comm) FROM sal GROUP BY city;
+SELECT onum, amt * 0.8 AS amt_euro, sname, comm FROM ord JOIN sal on sal.snum = ord.snum;
+SELECT onum, sname, cname FROM ord JOIN sal on sal.snum = ord.snum JOIN cust on ord.cnum = cust.cnum WHERE sal.city = 'London' OR sal.city = 'Rome' ORDER BY onum;
+SELECT s.sname, SUM(o.amt), SUM(s.comm) FROM sal s JOIN cust c ON s.snum = c.snum JOIN ord o ON c.cnum = o.cnum WHERE o.odate::DATE <= '1990-10-05' GROUP BY s.sname ORDER BY s.sname;
+SELECT onum, amt, sname, cname FROM ord JOIN sal ON sal.snum = ord.snum JOIN cust ON cust.cnum = ord.cnum WHERE sal.city >= 'L' AND sal.city <= 'R' AND cust.city >= 'L' AND cust.city <= 'R';
+SELECT DISTINCT c1.cname, c2.cname, s.sname FROM cust c1 JOIN cust c2 ON c1.snum = c2.snum AND c1.cnum < c2.cnum JOIN sal s ON c1.snum = s.snum ORDER BY s.sname, c1.cname, c2.cname;
+SELECT cname FROM cust WHERE cust.cnum IN (SELECT cnum FROM ord JOIN sal ON sal.snum = ord.snum WHERE comm < 0.13);
+CREATE TABLE sal_copy AS SELECT * FROM sal;
+INSERT INTO sal (snum, sname, city, comm) VALUES(1008, 'Patskier', 'London', 0.1), (1009, 'Rihanna', 'Rome', 0.15); SELECT * FROM sal; DELETE FROM sal WHERE snum = 1008; SELECT * FROM sal;
+INSERT INTO sal (snum, sname, city, comm) VALUES(1008, 'Patskier', 'London', 0.1), (1009, 'Rihanna', 'Rome', 0.15); SELECT * FROM sal; UPDATE sal SET comm = comm * 2; SELECT * FROM sal;
+
+
+

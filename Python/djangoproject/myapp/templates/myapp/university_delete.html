@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Удалить университет</title>
+</head>
+<body>
+    <h1>Удалить университет</h1>
+    <p> Вы действительно хотите удалить "{{ university.full_name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+</body>
+</html>

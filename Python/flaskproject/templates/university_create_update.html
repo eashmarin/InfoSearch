@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма</title>
+</head>
+<body>
+    <h1>Форма для университета</h1>
+    <form method="post">
+        <div>
+            {{ form.full_name.label }}: {{ form.full_name(size=20) }}
+        </div>
+        <div>
+            {{ form.short_name.label }}: {{ form.short_name(size=20) }}
+        </div>
+        <div>
+            {{ form.created_date.label }}: {{ form.created_date(size=20) }}
+        </div>
+        <div>
+            <button type="submit">Сохранить</button>
+        </div>
+    </form>
+</body>
+</html>

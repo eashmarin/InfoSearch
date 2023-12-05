@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Подробности студента</title>
+</head>
+<body>
+    <h2>{{ student.full_name }}</h2>
+    <p><strong>Дата рождения:</strong> {{ student.birth_date }}</p>
+    <p><strong>Университет:</strong> {{ student.university }}</p>
+    <p><strong>Дата поступления:</strong> {{ student.enrollment_year }}</p>
+
+    <a href="{% url 'student_list' %}">Назад</a>
+</body>
+</html>
